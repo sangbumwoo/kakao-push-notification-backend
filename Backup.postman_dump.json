@@ -1,0 +1,528 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "0914213d-6931-40a3-9e39-dc9830b652cf",
+			"name": "nest.js",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [],
+			"folders_order": [],
+			"folders": [],
+			"requests": []
+		},
+		{
+			"id": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+			"name": "ApplicationServer api",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"5b7f7f0c-026a-4699-b117-7a363558042d",
+				"f5a9b54e-d64e-42f8-82ef-e3a4fa4627a2",
+				"a7d2cf0e-ba79-4217-bab0-519a40126962",
+				"db8988f0-9d67-43f2-ba0a-c2b9b17e3380",
+				"c94f6687-a882-480a-ab96-c8a094769800"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "5b7f7f0c-026a-4699-b117-7a363558042d",
+					"name": "registerToken",
+					"url": "{{HOST}}/v1/push/register",
+					"description": "",
+					"data": [
+						{
+							"key": "uuid",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "device_id",
+							"value": "0f365b39-c33d-39be-bdfc-74aaf5534470",
+							"type": "text"
+						},
+						{
+							"key": "push_type",
+							"value": "gcm",
+							"type": "text"
+						},
+						{
+							"key": "push_token",
+							"value": "dsxcRAFzTbOwPkMRFdhlv6:APA91bHx1LWs0cvuoELIU1wZO4FAc-lrWsmggfCVNEYZ1WDxLSkeebpdNMJzzAuls7cH3FwNE5t7d_sBKZJje5YCcAr-GFqvX0UE_cIHQMpVrbfQdewRp3dzm9mv0kPJVu2Y4QKvh2nX",
+							"type": "text"
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "KakaoAK {{APP_ADMIN_KEY}}",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+					"headers": "Authorization: KakaoAK {{APP_ADMIN_KEY}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "a7d2cf0e-ba79-4217-bab0-519a40126962",
+					"name": "viewToken - multiple",
+					"url": "{{HOST}}/v1/push/tokens",
+					"description": "",
+					"data": [
+						{
+							"key": "uuids",
+							"value": "[\"1234\", \"5678\"]",
+							"type": "text"
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "KakaoAK {{APP_ADMIN_KEY}}",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+					"headers": "Authorization: KakaoAK {{APP_ADMIN_KEY}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "c94f6687-a882-480a-ab96-c8a094769800",
+					"name": "sendMessage",
+					"url": "{{HOST}}/v1/push/send",
+					"description": "",
+					"data": [
+						{
+							"key": "uuids",
+							"value": "[\"1234\", \"5678\"]",
+							"type": "text"
+						},
+						{
+							"key": "push_message",
+							"value": "{\"for_apns\":{\"badge\": 3,\"sound\": \"sound_file\",\"push_alert\": true,\"content-available\":1,\"category\":\"INVITE_CATEGORY\",\"message\": \"홍길동님 외 2명이 댓글을 달았습니다.\",\"custom_field\": {\"article_id\": \"111\",\"comment_id\": \"222\"}},\"for_gcm\":{\"collapse\": \"articleId123\",\"delay_while_idle\":false,\"time_to_live\":17200,\"dry_run\":false,\"priority\":\"high\",\"custom_field\": {\"article_id\": 111,\"comment_id\": 222,\"comment_preview\": \"나의 댓글을 받아랏!...(생략)\"}}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "KakaoAK {{APP_ADMIN_KEY}}",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text",
+							"enabled": false
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+					"headers": "Authorization: KakaoAK {{APP_ADMIN_KEY}}\n//Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "db8988f0-9d67-43f2-ba0a-c2b9b17e3380",
+					"name": "deRegisterToken",
+					"url": "{{HOST}}/v1/push/deregister",
+					"description": "",
+					"data": [
+						{
+							"key": "uuid",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "device_id",
+							"value": "0f365b39-c33d-39be-bdfc-74aaf5534470",
+							"type": "text"
+						},
+						{
+							"key": "push_type",
+							"value": "gcm",
+							"type": "text"
+						}
+					],
+					"dataOptions": null,
+					"dataMode": "urlencoded",
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "KakaoAK {{APP_ADMIN_KEY}}",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+					"headers": "Authorization: KakaoAK {{APP_ADMIN_KEY}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "f5a9b54e-d64e-42f8-82ef-e3a4fa4627a2",
+					"name": "viewToken - single",
+					"url": "{{HOST}}/v1/push/tokens?uuid=1234",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "KakaoAK {{APP_ADMIN_KEY}}",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "uuid",
+							"value": "1234",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "1d33f36b-b338-4a5a-9efc-8a09652e6c9b",
+					"headers": "Authorization: KakaoAK {{APP_ADMIN_KEY}}\n",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "88e66e0d-5ebb-483d-bc6f-c5ffd3b42979",
+			"name": "네이버부동산",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"e134193c-28b5-4094-af75-d07152f8ad9d"
+			],
+			"folders_order": [],
+			"folders": [],
+			"requests": [
+				{
+					"id": "e134193c-28b5-4094-af75-d07152f8ad9d",
+					"name": "네이버부동산",
+					"url": "https://new.land.naver.com/api/complexes/single-markers/2.0?cortarNo=1162010100&zoom=10&priceType=RETAIL&markerId&markerType&selectedComplexNo&selectedComplexBuildingNo&fakeComplexMarker&realEstateType=APT%3AJGC%3AABYG&tradeType=&tag=%3A%3A%3A%3A%3A%3A%3A%3A&rentPriceMin=0&rentPriceMax=900000000&priceMin=0&priceMax=900000000&areaMin=0&areaMax=900000000&oldBuildYears&recentlyBuildYears&minHouseHoldCount&maxHouseHoldCount&showArticle=false&sameAddressGroup=false&minMaintenanceCost&maxMaintenanceCost&directions=&leftLon=126.9238674&rightLon=126.9816043&topLat=37.4929823&bottomLat=37.4692795",
+					"description": "테스트",
+					"data": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "cortarNo",
+							"value": "1162010100",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "zoom",
+							"value": "10",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "priceType",
+							"value": "RETAIL",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "markerId",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "markerType",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "selectedComplexNo",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "selectedComplexBuildingNo",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "fakeComplexMarker",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "realEstateType",
+							"value": "APT%3AJGC%3AABYG",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "tradeType",
+							"value": "",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "tag",
+							"value": "%3A%3A%3A%3A%3A%3A%3A%3A",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "rentPriceMin",
+							"value": "0",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "rentPriceMax",
+							"value": "900000000",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "priceMin",
+							"value": "0",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "priceMax",
+							"value": "900000000",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "areaMin",
+							"value": "0",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "areaMax",
+							"value": "900000000",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "oldBuildYears",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "recentlyBuildYears",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "minHouseHoldCount",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "maxHouseHoldCount",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "showArticle",
+							"value": "false",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "sameAddressGroup",
+							"value": "false",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "minMaintenanceCost",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "maxMaintenanceCost",
+							"value": "",
+							"equals": false,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "directions",
+							"value": "",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "leftLon",
+							"value": "126.9238674",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "rightLon",
+							"value": "126.9816043",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "topLat",
+							"value": "37.4929823",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "bottomLat",
+							"value": "37.4692795",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "88e66e0d-5ebb-483d-bc6f-c5ffd3b42979",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "24d966e4-a670-4cf6-9940-5a09cce6d9ee",
+			"name": "push-kakao-sa21",
+			"values": [
+				{
+					"key": "APP_ADMIN_KEY",
+					"value": "aad44b4820cf7e5af5d62f7838830575",
+					"enabled": true
+				},
+				{
+					"key": "HOST",
+					"value": "https://kapi.kakao.com",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "ea7e8932-7d10-4629-b40d-bce6572b22ff",
+			"name": "push-localhost-sa21",
+			"values": [
+				{
+					"key": "APP_ADMIN_KEY",
+					"value": "aad44b4820cf7e5af5d62f7838830575",
+					"enabled": true
+				},
+				{
+					"key": "HOST",
+					"value": "http://localhost:3000",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "7ae5897a-7ddf-4c0e-ae79-10255865328e",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
