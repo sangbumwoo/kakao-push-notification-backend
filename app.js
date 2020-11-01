@@ -1,8 +1,10 @@
 var createError = require('http-errors');
+var cors = require('cors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var axios = require('axios');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +15,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,25 +24,78 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/registerToken', function (req, res, next) {
-//   res.send('registerToken');
-// });
+const headers = {
+  'Content-Type': 'application/json',
+  Authorization: 'KakaoAK aad44b4820cf7e5af5d62f7838830575',
+};
 
-app.post('/registerToken', function (req, res) {
-  console.log(req.body);
-  res.send('/registerToken');
+app.post('/v1/push/register', function (req, res) {
+  axios
+    .post('https://kapi.kakao.com/v1/push/register', null, {
+      params: req.body,
+      headers: headers,
+    })
+    .then((response) => {
+      res.send('' + response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 });
 
-app.post('/viewToken', function (req, res) {
-  res.send('/viewToken');
+app.get('/v1/push/tokens', function (req, res) {
+  axios
+    .get(`https://kapi.kakao.com/v1/push/tokens?uuid=${req.query.uuid}`, {
+      headers: headers,
+    })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 });
 
-app.post('/deRegisterToken', function (req, res) {
-  res.send('/deRegisterToken');
+app.post('/v1/push/tokens', function (req, res) {
+  axios
+    .post('https://kapi.kakao.com/v1/push/tokens', null, {
+      params: req.body,
+      headers: headers,
+    })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 });
 
-app.post('/sendToken', function (req, res) {
-  res.send('/sendToken');
+app.post('/v1/push/deregister', function (req, res) {
+  axios
+    .post('https://kapi.kakao.com/v1/push/deregister', null, {
+      params: req.body,
+      headers: headers,
+    })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
+});
+
+app.post('/v1/push/send', function (req, res) {
+  axios
+    .post('https://kapi.kakao.com/v1/push/send', null, {
+      params: req.body,
+      headers: headers,
+    })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.log(error.response);
+    });
 });
 
 // catch 404 and forward to error handler
